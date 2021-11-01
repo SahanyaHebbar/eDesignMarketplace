@@ -9,54 +9,61 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 500,
-      child: Scaffold(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.orange[700],
+      appBar: AppBar(
         backgroundColor: Colors.orange[700],
-        appBar: AppBar(
-          backgroundColor: Colors.orange[700],
-          title: Text('eDsignMarketplace'),
-        ),
-        body: PeachCard(
-          container: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Column(
-                    children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text('Username', style: kPoppinTitle)),
-                      TextField(
-                        showCursor: true,
-                        decoration: InputDecoration(
-                          hintText: 'Enter here',
+        title: Text('eDsignMarketplace'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          PeachCard(
+            container: Container(
+              height: 500,
+              color: Color(0xFFFAE3DE),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(40.0),
+                    child: Column(
+                      children: [
+                        TextField(
+                          showCursor: true,
+                          decoration: InputDecoration(
+                            labelText: 'Username',
+                            labelStyle: kPoppinTitle,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text('Password', style: kPoppinTitle)),
-                      TextField(
-                        showCursor: true,
-                        decoration: InputDecoration(
-                          hintText: 'Enter here',
+                        SizedBox(
+                          height: 50,
                         ),
-                      ),
-                    ],
+                        TextField(
+                          showCursor: true,
+                          decoration: InputDecoration(
+                            //hintText: 'Enter here',
+                            labelText: "Password",
+                            labelStyle: kPoppinTitle,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        WPRaisedButton(
+                          buttonTitle: "Login",
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/homepage'),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -70,7 +77,7 @@ class PeachCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Color(0xFFFAE3DE),
-      margin: EdgeInsets.symmetric(vertical: 120.0, horizontal: 10),
+      margin: EdgeInsets.only(left: 5, right: 5, top: 177),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
@@ -78,10 +85,38 @@ class PeachCard extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 20.0,
+            height: 40.0,
           ),
           container,
         ],
+      ),
+    );
+  }
+}
+
+class WPRaisedButton extends StatelessWidget {
+  WPRaisedButton({this.buttonTitle, this.onPressed});
+
+  final String buttonTitle;
+  final Function onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return ButtonTheme(
+      minWidth: 300.0,
+      child: RaisedButton(
+        child: Text(
+          buttonTitle,
+          style: TextStyle(fontFamily: 'Poppins', fontSize: 25),
+        ),
+        onPressed: onPressed,
+        color: Colors.orange[700],
+        textColor: Colors.white,
+        padding: EdgeInsets.all(8.0),
+        splashColor: Colors.grey,
+        elevation: 10.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.0),
+        ),
       ),
     );
   }
