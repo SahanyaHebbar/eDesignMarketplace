@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                         WPRaisedButton(
                           buttonTitle: "Login",
                           onPressed: () =>
-                              Navigator.pushNamed(context, '/homepage'),
+                              Navigator.popAndPushNamed(context, '/homepage'),
                         ),
                       ],
                     ),
