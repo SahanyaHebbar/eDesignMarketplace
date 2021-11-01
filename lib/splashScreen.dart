@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   route() {
-    Navigator.pushNamed(context, '/welcomepage');
+    Navigator.popAndPushNamed(context, '/welcomepage');
   }
 
   Widget build(BuildContext context) {
