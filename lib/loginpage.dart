@@ -10,9 +10,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.orange[700],
+      height: 500,
       child: Scaffold(
+        backgroundColor: Colors.orange[700],
         appBar: AppBar(
+          backgroundColor: Colors.orange[700],
           title: Text('eDsignMarketplace'),
         ),
         body: PeachCard(
@@ -20,20 +22,37 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  'Username:',
-                  style: kPoppinTitle,
-                  textDirection: TextDirection.ltr,
-                ),
                 SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
-                TextField(
-                  showCursor: true,
-                  decoration: InputDecoration(
-                    hintText: 'Enter here',
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    children: [
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text('Username', style: kPoppinTitle)),
+                      TextField(
+                        showCursor: true,
+                        decoration: InputDecoration(
+                          hintText: 'Enter here',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text('Password', style: kPoppinTitle)),
+                      TextField(
+                        showCursor: true,
+                        decoration: InputDecoration(
+                          hintText: 'Enter here',
+                        ),
+                      ),
+                    ],
                   ),
-                )
+                ),
               ],
             ),
           ),
